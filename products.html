@@ -13,11 +13,12 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 </head>
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <div class="container d-flex flex-column flex-md-row justify-content-between" id="menu">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -25,6 +26,55 @@
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
     </div>
   </nav>
+  <br><br>
+  <div class="container">
+
+
+    <input type="search" id="textobuscado" placeholder="Buscá tu producto"
+      class="form-control border-end-0 border rounded-pill">
+    <br>
+    <div class="row">
+
+      <div class="col text-left">
+        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+          <label class="btn btn-light" id="ordenAsc">
+            <input type="radio" name="options" autocomplete="off">
+            <i class="bi bi-sort-up-alt"></i> Precio
+          </label>
+          <label class="btn btn-light" id="ordenDes">
+            <input type="radio" name="options" autocomplete="off">
+            <i class="bi bi-sort-up"></i> Precio
+          </label>
+          <label class="btn btn-light" id="ordenar">
+            <input type="radio" name="options" autocomplete="off">
+            <i class="bi bi-award"></i> Más vendidos
+          </label>
+        </div>
+        <div class="container">
+          <div class="row justify-content-md-left">
+            <div class="col col-lg-2">
+              <p class="font-weight-normal">Filtrar por precio:</p>
+            </div>
+            <div class="col-md-auto">
+
+              <input type="number" id="minimo" placeholder="Mín." class="form-control mb-2">
+
+            </div>
+            <div class="col-md-auto">
+              <input type="number" id="maximo" placeholder="Máx." class="form-control mb-2">
+            </div>
+            <div class="col-md-1">
+
+              <input class="btn btn-light" type="button" value="Filtrar" onclick="filtrar();">
+              </label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <main role="main" class="pb-5">
     <div class="text-center p-4">
       <h2>Listado</h2>
@@ -61,6 +111,7 @@
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/my-profile.js"></script>
 </body>
 
 </html>
