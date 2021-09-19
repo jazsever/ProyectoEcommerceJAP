@@ -13,6 +13,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/stars.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -23,16 +25,84 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5" id="info">
+
+      <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Categoría</dt>
+        <dd>
+          <p id="productCategory"></p>
+        </dd>
+
+        <dt>Cantidad de productos vendidos</dt>
+        <dd>
+          <p id="productCount"></p>
+        </dd>
+
+        <dt>Precio</dt>
+        <dd>
+          <p id="productPrecio"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+
     </div>
-  </div>
+    <div class="container mt-5">
+
+      <h5><i class="fas fa-comments"></i> Otros compradores opinaron:</h5>
+      <div class="list-group" id="comentarios">
+      </div>
+    </div>
+
+    <div class="container mt-5">
+
+      
+        <h5>Tu opinión nos importa</h5>
+        <!--<div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="5 estrellas">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="4 estrellas">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="3 estrellas">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="2 estrellas">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="1 estrella">1 star</label>
+        </div>-->
+        <label>Puntuación: <input type="number" max="5" min="1" id="puntuacioningresada">  <span class="fa fa-star checked"></span></label>
+        <br>
+        <br>
+        
+        <div class="form-group">                  
+          <textarea name="comments" class="form-control" rows="3" style="font-family:sans-serif;font-size:1.2em;" id="comentariousuario">
+        </textarea>
+        </div>
+        <span id="mensajeerror"></span>
+        <button class="btn btn-primary" id="enviarcomentario">Enviar</button>
+      
+    </div>
+
+
+  </main>
+
+
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -55,6 +125,7 @@
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="js/comentarios.js"></script>
 </body>
 
 </html>

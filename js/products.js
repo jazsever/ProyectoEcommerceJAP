@@ -9,7 +9,7 @@ function showProductsList(array) {
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
-            <div class="row">
+            <div class="row"> 
                 <div class="col-3">
                     <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
                 </div>
@@ -22,15 +22,19 @@ function showProductsList(array) {
                 </div>
             </div>
         </div>
+        
         `
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+
+        
     }
 
 }
 
 //Ordenar array por precio del producto
 
+//Ascendente
 function ordenarPrecio() {
 
     productsArray.sort((a, b) => {
@@ -47,6 +51,7 @@ function ordenarPrecio() {
     showProductsList(productsArray);
 }
 
+//Descendente
 function ordenarInverso() {
 
     productsArray.sort((a, b) => {
@@ -114,6 +119,8 @@ function filtrar() {
     tabla.innerHTML = filas;
 }
 
+
+
 //Buscador de productos
 
 function buscador() {
@@ -135,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             productsArray = resultObj.data;
-            //Muestro las categorías ordenadas
+            //Muestro los productos
             showProductsList(productsArray);
         }
     });
@@ -146,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     });
 
-    document.getElementById("maximo").addEventListener("keyup", () => {
+    document.getElementById("minimo").addEventListener("keyup", () => {
         filtrar();
     });
 
@@ -165,6 +172,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     document.getElementById("ordenar").addEventListener("click", function(){
         ordenarRelevancia();
     });
+
+    document.getElementById("infodelproducto").addEventListener("click", function(){
+        location.href="product-info.html";
+
+    })
 });
 
 

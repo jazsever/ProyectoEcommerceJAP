@@ -28,13 +28,12 @@
   </nav>
   <br><br>
   <div class="container">
-
-
-    <input type="search" id="textobuscado" placeholder="Buscá tu producto"
-      class="form-control border-end-0 border rounded-pill">
+    <div>
+      <input type="search" id="textobuscado" placeholder="Buscá tu producto"
+        class="form-control border-end-0 border rounded-pill">
+    </div>
     <br>
     <div class="row">
-
       <div class="col text-left">
         <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
           <label class="btn btn-light" id="ordenAsc">
@@ -56,19 +55,15 @@
               <p class="font-weight-normal">Filtrar por precio:</p>
             </div>
             <div class="col-md-auto">
-
               <input type="number" id="minimo" placeholder="Mín." class="form-control mb-2">
-
             </div>
             <div class="col-md-auto">
               <input type="number" id="maximo" placeholder="Máx." class="form-control mb-2">
             </div>
             <div class="col-md-1">
-
               <input class="btn btn-light" type="button" value="Filtrar" onclick="filtrar();">
               </label>
             </div>
-
           </div>
         </div>
       </div>
@@ -80,7 +75,7 @@
       <h2>Listado</h2>
     </div>
     <div class="container">
-      <div class="row">
+      <div class="row" id="infodelproducto">
         <div class="list-group" id="cat-list-container">
         </div>
       </div>
