@@ -36,7 +36,7 @@
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between" id="menu"> 
+    <div class="container d-flex flex-column flex-md-row justify-content-between" id="menu">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -44,12 +44,76 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_47pyyfcf.json" background="transparent"
+            speed="0.5" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+        </div>
+        <div class="col">
+          <h1> Mi Carrito</h1>
+          <p>Aquí encontrarás todos los productos agregados a tu carrito, podrás seleccionar método de pago y envío para
+            finalizar tu compra.</p>
+        </div>
+      </div>
     </div>
+
+
+    <table class="table table-striped table-hover table-bordered table-responsive">
+      <thead>
+        <tr>
+          <th scope="col">Producto</th>
+          <th scope="col">Moneda</th>
+          <th scope="col">Costo</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="tablaCarrito">
+
+      </tbody>
+
+    </table>
+    <br>
+    <h5>Elige el tipo de envío:</h5>
+    <label><input type="radio">Premium (de 2 a 5 días) +15%</label>
+    <br>
+    <label><input type="radio">Express (de 5 a 8 días) +7%</label>
+    <br>
+    <label><input type="radio">Standard (de 12 a 15 días) +5%</label>
+    <br>
+    <br>
+    <h5>Elige el método de pago:</h5>
+    <br>
+    <h3>Costos:</h3>
+    <div class="list-group">
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+          <h4>Subtotal: <span id="subtotal" class="align-right"></span></h4>
+        </div>
+
+
+      </div>
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+
+        <div class="d-flex w-100 justify-content-between">
+          <h4>Costo de envío: <span id="costoEnvio"></span></h4>
+        </div>
+
+
+      </div>
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+
+        <div class="d-flex w-100 justify-content-between">
+          <h4>Total: <span id="total"></span></h4>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
