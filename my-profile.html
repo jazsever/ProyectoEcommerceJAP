@@ -42,17 +42,69 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      
+
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="col-6" id="datos_personales">
+      <div class="card bg-light mb-6">
+        <div class="card-header"></div>
+        <div class="card-body">
+          <h5 class="card-title">Tus datos personales</h5>
+          <p class="card-text">
+            <label>Nombre: <span id="nombre1"></span></label>
+            <br>
+            <label>Apellido:</label>
+            <br>
+            <label>Correo:</label>
+            <br>
+            <label>Fecha de nacimiento:</label>
+            <br>
+            <label>Celular:</label>
+            <br>
+          </p>
+        </div>
+      </div>
     </div>
+
+
   </div>
+
+  <br>
+  <br>
+
+  <div class="container">
+    <div class="col-6">
+      <h5 class="card-title">Si no ha terminado de completar su perfil o
+        desea cambiar sus datos personales complete el siguiente formulario:</h5>
+    
+      <small class="text-muted">Complete todos los datos porque los guardados se borraran al editar.</small>
+      <br>
+      <label> Nombre: <input type="text" id="nombre"></label>
+      <br>
+      <label> Apellido: <input type="text" id="apellido"></label>
+      <br>
+      <label> Correo: <input type="email" id="mail"></label>
+      <br>
+      <label> Fecha de nacimiento: <input type="date" id="fecha"></label>
+      <br>
+      <label> Telefono: <input type="tel" id="telefono"></label>
+      <br>
+      <input type="file" onchange="vistaPrevia()" placeholder="">
+      <img id="foto" src="" height="200"><br><br>
+      <br>
+      <button class="btn btn-outline-info" onclick="guardar();">Guardar datos</button>
+    </div>
+
+    <div id="contenido">
+            
+    </div>
+
+    
+  </div>
+
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
