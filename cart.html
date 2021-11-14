@@ -32,6 +32,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  
 </head>
 
 <body>
@@ -60,8 +61,8 @@
       </div>
     </div>
 
-
-    <table class="table table-striped table-hover table-bordered table-responsive">
+    <!--Carrito-->
+    <table class="table table-striped table-hover table-bordered ">
       <thead>
         <tr>
           <th scope="col">Producto</th>
@@ -69,6 +70,7 @@
           <th scope="col">Costo</th>
           <th scope="col">Cantidad</th>
           <th scope="col">Subtotal</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody id="tablaCarrito">
@@ -77,44 +79,109 @@
 
     </table>
     <br>
-    <h5>Elige el tipo de envío:</h5>
-    <label><input type="radio">Premium (de 2 a 5 días) +15%</label>
-    <br>
-    <label><input type="radio">Express (de 5 a 8 días) +7%</label>
-    <br>
-    <label><input type="radio">Standard (de 12 a 15 días) +5%</label>
-    <br>
-    <br>
-    <h5>Elige el método de pago:</h5>
-    <br>
-    <h3>Costos:</h3>
-    <div class="list-group">
-      <div class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h4>Subtotal: <span id="subtotal" class="align-right"></span></h4>
-        </div>
 
+    <!--Envío-->
+    <form>
+      <h5 class="mb-3">Elige el tipo de envío</h5>
+      <div class="d-block my-3">
+        <div>
+          <input value=0.15 name="envios" type="radio" class="envio" checked="" required="">
+          <label>Premium (de 2 a 5 días) +15%</label>
+        </div>
+        <div>
+          <input value=0.07 name="envios" type="radio" class="envio" required="">
+          <label>Express (de 5 a 8 días) +7%</label>
+        </div>
+        <div>
+          <input value=0.05 name="envios" type="radio" class="envio" required="">
+          <label>Estándar (de 12 a 15 días) +5%</label>
+        </div>
+        <div class="invalid-feedback">More example invalid feedback text</div>
+      </div>
+
+      <!--Método de pago-->
+      <h5>Elige el método de pago:</h5>
+      <div class="row">
+        <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#exampleModal">Ver
+          opciones</button>
 
       </div>
-      <div class="list-group-item list-group-item-action flex-column align-items-start">
-
-        <div class="d-flex w-100 justify-content-between">
-          <h4>Costo de envío: <span id="costoEnvio"></span></h4>
-        </div>
-
-
+      <div class="row">
+        <h5>Método elegido: </h5> <span id="metodoelegido"></span>
       </div>
-      <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <!--Ventana modal-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Elija el método de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="needs-validation" novalidate>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="pagos" value="option1" required>
+                  <label class="form-check-label" for="arjetacredito">
+                    Tarjeta de crédito
+                  </label>
+                  <span id="tarjetacredito">
 
-        <div class="d-flex w-100 justify-content-between">
-          <h4>Total: <span id="total"></span></h4>
+                  </span>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="pagos" value="option2" required>
+                  <label class="form-check-label" for="transferencia">
+                    Transferencia bancaria
+                  </label>
+                  <span id="transferencia"></span>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <span id="mensaje_error"></span>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" onclick="validarModal()">Guardar</button>
+              
+              
+            </div>
+          </div>
         </div>
-
       </div>
-    </div>
 
+      <!--Fin de ventana modal-->
+
+      <br>
+
+      <!--Costos Totales-->
+      <h4 class="mb-3">Costos</h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Subtotal</h6>
+            <small class="text-muted">Precio de los productos</small>
+          </div>
+          <span class="text-muted" id="subtotal">-</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Costo de envío</h6>
+            <small class="text-muted">Según el tipo de envío elegido</small>
+          </div>
+          <span class="text-muted" id="costoenvio"></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total ($)</span>
+          <strong id="costoTotal">-</strong>
+        </li>
+      </ul>
+
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg" type="submit" onclick="validarTodo();">Finalizar compra</button>
+    </form>
   </div>
-  </div>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -129,6 +196,7 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/my-profile.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
